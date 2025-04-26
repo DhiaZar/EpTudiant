@@ -174,8 +174,17 @@ The next code is related to the second page
 Meaning that more pages can be added in the same Main file as other classes
 Then said pages should be added in the routing on Line 18
 */
-class SecondPage extends StatelessWidget {
+class SecondPage extends StatefulWidget {
   const SecondPage({super.key});
+
+  @override
+  State<SecondPage> createState() => _SecondPage();
+}
+
+class _SecondPage extends State<SecondPage> {
+  String? _selectedItem;
+
+  final List<String> _items = ['Item1', 'Item2', 'Item3', 'Item4'];
 
   @override
   Widget build(BuildContext context) {
@@ -195,6 +204,22 @@ class SecondPage extends StatelessWidget {
                 Navigator.pop(context); // Return to previous page
               },
               child: const Text('Go Back'),
+            ),
+            DropdownButton<String>(
+              value: _selectedItem,
+              hint: Text("This is a hint talking about the drop down"),
+              items:
+                  _items.map((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+              onChanged: (newValue) {
+                setState(() {
+                  _selectedItem = newValue;
+                });
+              },
             ),
           ],
         ),
