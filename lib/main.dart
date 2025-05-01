@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 // commentaire Ranim
-=======
+
 //commentaire wiwi
->>>>>>> c868ee084a41a816764e3175fcf419bf503b270c
-=======
 
 // Commentaire Dhia
->>>>>>> e22ebab1ecc1bcfbfe857e2c3fd7deb05dd0a1ce
+// un deuxieme commentaire
+
+
 void main() {
   runApp(const MyApp());
 }
