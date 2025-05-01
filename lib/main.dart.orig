@@ -105,12 +105,15 @@ class _MyHomePageState extends State<MyHomePage> {
               child: const Text('Elevated Button'),
             ),
             const SizedBox(height: 20),
+<<<<<<< HEAD
 //farah
             // -------------------------------
             // 4. Button with Image
             // -------------------------------
+=======
 
             // Button with Image
+>>>>>>> 0397225fee19ea4c7b31dfa84ffc59f7109ee873
             ElevatedButton.icon(
               onPressed: () {
                 ScaffoldMessenger.of(context).showSnackBar(
@@ -172,7 +175,7 @@ class _SecondPageState extends State<SecondPage> {
         centerTitle: true,
       ),
       body: Center(
-
+<<<<<<< HEAD
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -204,10 +207,50 @@ class _SecondPageState extends State<SecondPage> {
               },
             ),
           ],
-
-
+=======
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8.0),
+                child: Image.network(
+                  'https://static01.nyt.com/images/2016/08/05/us/05onfire1_xp/05onfire1_xp-superJumbo-v2.jpg',
+                  height: 200,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) => const Icon(Icons.error, size: 50),
+                ),
+              ),
+              const SizedBox(height: 20),
+              Text(
+                'Welcome to the Second Page!',
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
+              const SizedBox(height: 20),
+              DropdownButton<String>(
+                value: _selectedItem,
+                hint: const Text('Select an item'),
+                isExpanded: true,
+                items: _items.map((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),
+                  );
+                }).toList(),
+                onChanged: (newValue) => setState(() => _selectedItem = newValue),
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text('Go Back'),
+              ),
+            ],
+          ),
+>>>>>>> 009a6d9c7aa63e93df3cc0e96e396abbe975109e
+        ),
       ),
-    )
     );
   }
 }
